@@ -7,6 +7,8 @@ import {
   Route,
 } from "react-router-dom";
 import { HashLink as Link } from 'react-router-hash-link';
+import { PlayerSidebar } from './PlayerSidebar';
+import PlayerList from './components/player-list.component'
 
 import Matter from "matter-js";
 
@@ -126,12 +128,9 @@ function About() {
           testing.
         </p>
 
-        <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="2000">Feel free to reach out with anything via
-          <a target="_blank" rel="noopener noreferrer" href="mailto:jre2016@gmail.com">email</a>,
+        <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="2000">Feel free to reach out with anything via <a target="_blank" rel="noopener noreferrer" href="mailto:jre2016@gmail.com">email</a>,
           or follow any of the links in the top right corner to visit my <a target="_blank"
-            rel="noopener noreferrer" href="https://github.com/jedell">Github</a>,
-          <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/joseph-r-edell-63b267139">LinkedIn</a>, or
-          <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/cockapoodaily">cockapoos daily twitter page</a>.
+            rel="noopener noreferrer" href="https://github.com/jedell">Github</a>, <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/joseph-r-edell-63b267139">LinkedIn</a>, or <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/cockapoodaily">cockapoos daily twitter page</a>.
         </p>
       </div>
 
@@ -152,6 +151,7 @@ function Resume() {
         <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="2000">
           <div id="resume-sub">Experience</div>
           <ul style={listStyle}>
+            <li>➤ Software Engineering Intern, <a a target="_blank" rel="noopener noreferrer" href="https://contenda.co">Contenda</a></li>
             <li>➤ Tax Technology Intern, Deloitte Tax LLP</li>
             <li>➤ Grading Assistant, Oberlin College CSCI Department</li>
           </ul>
@@ -196,9 +196,22 @@ function Main() {
 }
 
 class Game extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      expanded: false
+    }
+  }
+
   render() {
     return (
-      <div id="resume">Coming Soon...</div>
+      <div id="game">
+        <PlayerSidebar width={100} height={"100vh"}>
+          <PlayerList/>
+        </PlayerSidebar>
+        {/* <div>Coming Soon...</div> */}
+      </div>
     );
   }
 }

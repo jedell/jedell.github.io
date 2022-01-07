@@ -6,6 +6,12 @@ html, body, #root, .App {
   scroll-behavior: smooth;
 }
 
+a {
+  color: #eef593;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
 body {
   font-family: 'Exo 2', sans-serif;
   font-family: 'Open Sans', sans-serif;
@@ -13,6 +19,9 @@ body {
   letter-spacing: 2%;
   background: #000000;
   color: #ffffff;
+  --def: rgb(255, 255, 255); 	
+	--inv: rgb(255, 255, 255);
+  /* background-image: linear-gradient(-25deg, #61616115 100%, #96b7c433 100%, #61616115 10%); */
 }
 
 header {
@@ -332,8 +341,82 @@ IMG.meteor {
     letter-spacing: 1.25px;
   }
 
+}.side-bar {
+  height: 100% !important;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  opacity: 60%;
+  transition: 0.8s ease;
+  z-index: 50;
 }
 
+.content {
+  padding: 20px;
+}
 
+*, *:before, *:after {
+	box-sizing: border-box;
+}
 
+.toggle-menu {		
+	position: relative;	
+  margin: 25%;
+  margin-left: 100%;
+	font-size: 1.4rem;
+  color: #c0c0c077;
+  background-color: transparent;
+  border:none;
+	letter-spacing: 1.1rem;
+	text-transform: uppercase;
+	transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);	
+	cursor: pointer;
+	user-select: none;
+  z-index: 30;
+  border-radius: 50%;
 
+}
+
+.toggle-menu:hover {
+	color: var(--def);
+	transition-delay: .1s;
+  border-radius: 50%;
+
+}
+
+.toggle-menu:hover:before {
+	transition-delay: 0s;
+  border-radius: 50%;
+
+}
+
+.toggle-menu:hover:after {
+	background: var(--def);
+	transition-delay: .35s;
+  border-radius: 50%;
+}
+
+/* From Right */
+
+.from-right:before, 
+.from-right:after {
+	top: 20px;
+	width: 30px;
+	height: 20px;
+}
+
+.from-right:before {
+	left: 0;
+	border: 1px solid var(--inv);
+	border-left: 0;
+	border-right: 0;	
+}
+
+.from-right:after {
+	right: 0;
+}
+
+.from-right:hover:before,
+.from-right:hover:after {
+	width: 100%;
+}
