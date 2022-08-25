@@ -57,8 +57,8 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   return (
-    <div className={`${isDarkMode ? 'dark' : ''}`}>
-      <header className="fixed pl-4 z-10 dark:text-[#FEFDFB] bg-transparent text-[#333531] w-full">
+    <div className={`${isDarkMode ? 'dark bg-gray-900' : ''}`}>
+      <header className="lg:fixed md:relative sm:relative lg:bg-transparent lg:dark:bg-transparent pl-4 z-10 dark:text-[#FEFDFB] text-[#333531] dark:bg-gray-900 bg-[#FEFDFB] w-full">
         <div className="flex justify-between pb-2">
           <div className="flex flex-row gap-4">
             <div className="font-bold"><a className="" href={'#' + SECTIONS[0]}>{SECTIONS[0]}</a></div>
@@ -74,7 +74,7 @@ function App() {
       </header>
       <div className={`dark:bg-gray-900 dark:text-[#FEFDFB] bg-[#FEFDFB] text-[#333531] `}>
         <section id={SECTIONS[0]} className="h-full w-full relative flex flex-col items-center content-center pl-8 pr-8">
-          <div className="flex flex-col content-center items-start m-0 text-md lg:w-7/12 md:w-8/12 sm:w-9/12 pt-8 pb-8">
+          <div className="flex flex-col content-center items-start m-0 text-md lg:w-7/12 md:w-8/12 sm:w-9/12 lg:pt-8 pt-2 pb-8">
             <div className="typing border-r-2 border-[#A76031] dark:border-[#f58282]">Hi, I'm Joey!</div>
             <p className="text-left indent-8 pt-4">I am pursuing a MS in CS from <a className="text-[#A76031] dark:text-[#f58282] underline" href="https://cims.nyu.edu/dynamic/">New York University</a>.
               I previously studied CS and economics at <a className="text-[#A76031] dark:text-[#f58282] underline" href="https://www.oberlin.edu/">Oberlin College</a>.
