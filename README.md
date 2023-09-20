@@ -1,4 +1,2 @@
 # Personal Website
 
-jredell.com
-
