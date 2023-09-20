@@ -3,36 +3,59 @@
 @tailwind utilities;
 
 body {
-  margin: 0;
-  font-family: monospace, sans-serif;
-  font-style: normal;
-  font-weight: 900;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: monospace, sans-serif;
+	font-style: normal;
+	font-weight: 900;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  background-color: #FEFDFB
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
+}
+
+.hover-text-box {
+	display: none;
+	position: absolute;
+	top: 17%;
+	right: -12%;
+	@media (max-width: 768px) {
+		right: -20%;
+	}
+
+	width: 150%;
+}
+
+.hover-container {
+	position: relative;
+	display: inline-block;
+}
+
+.hover-container:hover .hover-text-box {
+	display: inline-block;
 }
 
 .typing {
-  width: 13.2ch;
-  animation: typing 1.28s steps(22), blink .6s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  font-family: monospace;
-  font-size: 2em;
+	animation: typing 1.28s steps(22), blink 0.6s step-end infinite alternate;
+	white-space: nowrap;
+	overflow: hidden;
+	font-family: monospace;
+	font-size: 1.3rem;
+	/* // text: "Hi, I'm Joey!", set width according to text */
+	width: 13.5ch;
 }
 
 @keyframes typing {
-  from {
-    width: 0
-  }
+	from {
+		width: 0;
+	}
 }
-    
+
 @keyframes blink {
-  50% {
-    border-color: transparent
-  }
+	50% {
+		border-color: transparent;
+	}
 }
