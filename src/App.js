@@ -9,6 +9,8 @@ import { DarkModeProvider } from "./context/darkmode";
 
 // dark mode context
 
+console.log("Herllo")
+
 const router = createBrowserRouter([
 	{
 		path: "/",

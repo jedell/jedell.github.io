@@ -58,7 +58,7 @@ function Root() {
 
 	return (
 		<div className={`${isDarkMode ? "dark bg-gray-900" : ""}`}>
-			<header className="lg:fixed md:relative sm:relative lg:bg-transparent lg:dark:bg-transparent pl-4 z-10 dark:text-[#FEFDFB] text-[#333531] dark:bg-gray-900 bg-[#FEFDFB] w-full">
+			<header className="fixed pl-4 z-10 dark:text-[#FEFDFB] text-[#333531] dark:bg-gray-900 bg-[#FEFDFB] w-full">
 				<div className="flex justify-between pb-2">
 					<div className="flex flex-row gap-4">
 						<div className="font-bold">
@@ -71,9 +71,9 @@ function Root() {
 								{SECTIONS[1]}
 							</a>
 						</div>
-						{/* <div className="font-bold">
+						<div className="font-bold">
 							<Link to="/blog">{SECTIONS[2]}</Link>
-						</div> */}
+						</div>
 					</div>
 					<div className="flex flex-row gap-4 pt-2 pr-4">
 						<a
@@ -106,9 +106,9 @@ function Root() {
 			>
 				<section
 					id={SECTIONS[0]}
-					className="h-full w-full relative flex flex-col items-center content-center pl-8 pr-8"
+					className="h-full w-full relative flex flex-col items-center content-center pl-4 pr-4"
 				>
-					<div className="flex flex-col content-center items-start m-0 text-md lg:w-7/12 md:w-8/12 sm:w-9/12 lg:pt-8 pt-2 pb-8">
+					<div className="flex flex-col content-center items-start m-0 text-md lg:w-7/12 md:w-8/12 sm:w-9/12 lg:pt-8 pt-4 pb-8">
 						<div
 							// in a row
 							className="flex flex-row items-center justify-between w-full"
@@ -128,13 +128,13 @@ function Root() {
 										stroke={
 											isDarkMode ? "#f58282" : "#A76031"
 										}
-										stroke-width="2"
+										strokeWidth="2"
 									/>
 									<text
 										x="0%"
 										y="5%"
 										lengthAdjust="spacingAndGlyphs"
-										font-size={getFontSizeByScreenSize()}
+										fontSize={getFontSizeByScreenSize()}
 										fill={isDarkMode ? "#fff" : "#333531"}
 									>
 										<tspan x="5%" dy="1.2em">
@@ -156,14 +156,16 @@ function Root() {
 								/>
 							</div>
 						</div>
-{/* 
+
 						<div className="flex flex-col items-start justify-start w-full">
-							<p className="lg:text-2xl md:text-xl sm:text-lg text-md font-bold pt-8 pb-4">
-								blogs
-							</p>
+							<b>
+								<h2 className="">blogs</h2>
+							</b>
+
 							<div className="flex flex-col items-center justify-start w-full">
 								{blogs.slice(0, 3).map((blog) => (
 									<BlogCardSmall
+										key={blog.id}
 										title={blog.title}
 										date={blog.date}
 										slug={blog.id}
@@ -172,94 +174,49 @@ function Root() {
 									/>
 								))}
 							</div>
-						</div> 
-*/}
-
-						<div className="flex flex-col items-start justify-start w-full">
-							<p className="lg:text-2xl md:text-xl sm:text-lg text-md font-bold pt-8 pb-4">
-								about me
-							</p>
 						</div>
-
-						<p>
-							I am a graduate of{" "}
-							<a
-								className="text-[#A76031] dark:text-[#f58282] underline"
-								href="https://www.nyu.edu/"
-							>
-								New York University
-							</a>
-							, where I earned my Master of Science degree in
-							Computer Science. Prior to that, I pursued studies
-							in Computer Science and Economics at{" "}
-							<a
-								className="text-[#A76031] dark:text-[#f58282] underline"
-								href="https://www.oberlin.edu/"
-							>
-								Oberlin College
-							</a>
-							.
-						</p>
-						<p>
-							At{" "}
-							<a
-								href="#"
-								className="text-[#A76031] dark:text-[#f58282] underline"
-							>
-								Brewsy
-							</a>
-							, I created cutting-edge social experiences,
-							leveraging modern technologies.
-						</p>
-						<p>
-							During my internship at{" "}
-							<a
-								href="#"
-								className="text-[#A76031] dark:text-[#f58282] underline"
-							>
-								Goldman Sachs
-							</a>
-							, I drove innovation and efficiency implementing
-							contract-driven testing.
-						</p>
-						<p>
-							At{" "}
-							<a
-								href="#"
-								className="text-[#A76031] dark:text-[#f58282] underline"
-							>
-								Contenda
-							</a>
-							, I automated content generation using LLMs and
-							computer vision models.
-						</p>
-						<p>
-							During my internship at{" "}
-							<a
-								href="#"
-								className="text-[#A76031] dark:text-[#f58282] underline"
-							>
-								Deloitte
-							</a>
-							, I helped optimized processes and deliver impactful
-							results.
-						</p>
-						<p>
-							My academic interests include representation
-							learning, multimodal systems, and joint-embedding
-							architectures.
-						</p>
 					</div>
 				</section>
 
 				<section
 					id={SECTIONS[1]}
-					className="h-full w-full relative flex flex-col items-center content-center pl-8 pr-8"
+					className="h-full w-full relative flex flex-col items-center content-center pl-4 pr-4"
 				>
 					<div className="flex flex-col items-start justify-evenly m-auto space-y-1 text-md lg:w-7/12 md:w-8/12 sm:w-9/12">
 						<div className="flex flex-col pb-8">
 							<b>
-								<h2 className="">COURSEWORK</h2>
+								<h2 className="">about me</h2>
+							</b>
+
+							<p>
+								I am a graduate of{" "}
+								<a
+									className="text-[#A76031] dark:text-[#f58282] underline"
+									href="https://www.nyu.edu/"
+								>
+									New York University
+								</a>
+								, where I earned my M.S. in Computer Science.
+								Prior to that, I recieved my bachelor's in
+								Computer Science and Economics at{" "}
+								<a
+									className="text-[#A76031] dark:text-[#f58282] underline"
+									href="https://www.oberlin.edu/"
+								>
+									Oberlin College
+								</a>
+								.
+							</p>
+							<p>
+								My academic interests include representation
+								learning, natural language processing,
+								contrastive learning, and joint-embedding
+								models.
+							</p>
+						</div>
+						<div className="flex flex-col pb-8">
+							<b>
+								<h2 className="">coursework</h2>
 							</b>
 							<ul className="pl-5 list-disc">{COURSE_ITEMS}</ul>
 						</div>
@@ -268,13 +225,24 @@ function Root() {
 
 				<section
 					id={SECTIONS[2]}
-					className="h-full w-full relative flex flex-col items-center content-center pl-8 pr-8"
+					className="h-full w-full relative flex flex-col items-center content-center pl-4 pr-4"
 				>
 					<div className="flex flex-col items-start justify-evenly m-auto space-y-1 pt-4 pb-8 text-md lg:w-7/12 md:w-8/12 sm:w-9/12 ">
 						<b>
-							<h2 className="">PROJECTS</h2>
+							<h2 className="">projects</h2>
 						</b>
 						<ul className="pl-5 list-disc">
+							<li>
+								<a
+									href={ff_report}
+									target="_blank"
+									rel="noreferrer"
+									className="text-[#A76031] dark:text-[#f58282] underline"
+								>
+									Evaluation of the Forward-Forward Algorithm
+									for Sentiment Classification
+								</a>
+							</li>
 							<li>
 								<a
 									className="text-[#A76031] dark:text-[#f58282] underline"
@@ -326,34 +294,9 @@ function Root() {
 						</ul>
 					</div>
 				</section>
-				<section
-					id={SECTIONS[3]}
-					className="h-full w-full relative flex flex-col items-center content-center pl-8 pr-8"
-				>
-					<div className="flex flex-col items-start justify-evenly m-auto space-y-1 pt-4 pb-8 text-md lg:w-7/12 md:w-8/12 sm:w-9/12 ">
-						<b>
-							<h2 className="">WRITING</h2>
-						</b>
-						<ul className="pl-5 list-disc">
-							<li>
-								<div className="flex flex-row space-x-2">
-									<a
-										href={ff_report}
-										target="_blank"
-										rel="noreferrer"
-										className="text-[#A76031] dark:text-[#f58282] underline"
-									>
-										Evaluation of the Forward-Forward
-										Algorithm for Sentiment Classification
-									</a>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</section>
 			</div>
 			<div className="flex flex-col items-end content-center pl-8 pr-4 pb-1 dark:bg-gray-900 dark:text-[#FEFDFB] bg-[#FEFDFB] text-[#333531]">
-				<footer className="">© jre6163[at]nyu.edu {` `}</footer>
+				<footer className="">jre6163[at]nyu.edu {` `}</footer>
 			</div>
 		</div>
 	);

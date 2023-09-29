@@ -17,6 +17,62 @@ code {
 		monospace;
 }
 
+body {
+	@apply antialiased bg-[#FEFDFB] dark:bg-gray-900 text-[#333531] dark:text-[#FEFDFB];
+}
+
+a {
+	@apply text-[#A76031] dark:text-[#f58282] hover:text-[#A78051] transition-colors dark:hover:text-[#f592a2];
+}
+
+h1 {
+	@apply text-3xl font-bold text-gray-900 dark:text-[#FEFDFB];
+}
+
+h2 {
+	@apply text-2xl font-semibold text-gray-800 dark:text-[#FEFDFB];
+}
+
+h3 {
+	@apply text-xl font-medium text-gray-700 dark:text-[#FEFDFB];
+}
+
+p {
+	@apply text-base text-gray-600 dark:text-[#FEFDFB] pb-8;
+}
+
+ul {
+	@apply list-disc pl-5;
+}
+
+li {
+	@apply mb-1;
+}
+
+pre {
+   display: flex;
+   justify-content: center;
+   align-self: center;
+   @apply pb-8;
+}
+
+.katex-display > .katex {
+	display: inline-block;
+	white-space: nowrap;
+	max-width: 100%;
+	overflow-x: scroll;
+	text-align: initial;
+  }
+  .katex {
+    font: normal 1.21em KaTeX_Main, Times New Roman, serif;
+    line-height: 1.2;
+    white-space: normal;
+    text-indent: 0;
+    margin: 0 auto;
+	display: inline;
+	align-self: center;	
+  }
+
 .hover-text-box {
 	display: none;
 	position: absolute;

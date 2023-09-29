@@ -52,7 +52,7 @@ export default function BlogPage() {
 				}`}
 			>
 				<section className="h-full w-full relative flex flex-col justify-center items-center pl-8 pr-8">
-					<div className="flex flex-col content-center items-center text-md lg:w-6/12 md:w-8/12 sm:w-10/12 lg:pt-8 pt-2 pb-8">
+					<div className="flex flex-col content-center items-center text-md lg:w-10/12 md:w-10/12 sm:w-10/12 lg:pt-8 pt-2 pb-8">
 						<div
 							// if mobile, make it a single column, centered
 							className={`grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 flex flex-col justify-center items-center
