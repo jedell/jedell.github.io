@@ -53,7 +53,7 @@ const HeaderSection = ({ isDarkMode, setIsDarkMode }) => (
 
 // Title Component
 const Title = ({ blog }) => (
-	<div className="flex flex-col items-start justify-between w-full pb-4">
+	<div className="flex flex-col items-start justify-between w-full pb-4 pt-4">
 		<ReactMarkdown>{"# " + blog.title}</ReactMarkdown>
 		<div className="flex flex-row gap-4">
 			{/* date */}
@@ -180,16 +180,16 @@ const BodySection = ({ blog }) => (
 	>
 		<section className="h-full w-full relative flex flex-col items-center content-center pl-4 pr-4">
 			<div className="flex flex-col content-center items-start m-0 text-md w-full pt-2 pb-8">
-				<div
+				{/* <div
 					// in a row
 					className="flex flex-col items-center justify-between w-full"
 				>
 					<img
-						className="pb-4 w-full h-auto"
+						className="pb-4 w-1/2 h-auto" // Changed w-full to w-1/2 to make the image smaller
 						src={blog.image}
 						alt="blog post"
 					/>
-				</div>
+				</div> */}
 				<Title blog={blog} />
 				<div className="flex flex-col items-start justify-between w-full">
 					{blog.content.map((paragraph, index) => (

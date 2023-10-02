@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Root from "./routes/Root";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./routes/ErrorPage";
 import BlogPage from "./routes/BlogPage";
 import Blog from "./routes/Blog";
@@ -11,7 +11,7 @@ import { DarkModeProvider } from "./context/darkmode";
 
 console.log("Herllo")
 
-const router = createBrowserRouter([
+const router = createHashRouter([
 	{
 		path: "/",
 		element: <Root />,
