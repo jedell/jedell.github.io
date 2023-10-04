@@ -51,14 +51,29 @@ const HeaderSection = ({ isDarkMode, setIsDarkMode }) => (
 	</header>
 );
 
+// Link Card Component
+const LinkCard = ({ link }) => {
+	const { isDarkMode } = useDarkMode();
+	const url = new URL(link);
+	const siteTitle = url.hostname;
+
+	return (
+		<a href={link} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-start border border-gray-300 dark:border-gray-700 rounded-lg p-4 mb-4">
+			<img src={`https://www.google.com/s2/favicons?domain=${link}`} alt="Link icon" className="w-8 h-8 mr-4" />
+			<div className="text-sm dark:text-white">{siteTitle}</div>
+		</a>
+	);
+};
+
+
+
 // Title Component
 const Title = ({ blog }) => (
 	<div className="flex flex-col items-start justify-between w-full pb-4 pt-4">
 		<ReactMarkdown>{"# " + blog.title}</ReactMarkdown>
-		<div className="flex flex-row gap-4">
-			{/* date */}
-			<div className="text-sm text-base">{blog.date}</div>
-		</div>
+		<LinkCard
+		link={"https://github.com/jedell/transformers/blob/10c57f601571d739d3359b4779fc46365c17bb5b/src/transformers/generation/utils.py#L2324C5-L2324C5"}
+		/>
 	</div>
 );
 

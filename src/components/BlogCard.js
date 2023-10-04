@@ -30,7 +30,6 @@ export default function BlogCard({ title, image, date, index, slug }) {
 				<div className="font-bold text-l mb-0 h-14">
 					<p className="line-clamp-2 overflow-ellipsis">{title}</p>
 				</div>
-				<p className="text-gray-700 text-base">{date}</p>
 			</div>
 			<div className="px-6 pt-2 pb-2 flex justify-start">
 				<ReadMoreButton slug={slug} />
@@ -53,7 +52,6 @@ export function BlogCardSmall({ title, image, date, index, slug }) {
 			{/* left align title, date, and read more link */}
 			<div className="flex flex-col gap-2 w-full justify-center">
 				<div className="font-bold text-l">{title}</div>
-				<div className="text-gray-700 text-base">{date}</div>
 				<ReadMoreButton slug={slug} />
 			</div>
 		</div>
