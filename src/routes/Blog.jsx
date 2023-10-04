@@ -58,9 +58,18 @@ const LinkCard = ({ link, title }) => {
 	const siteTitle = title || url.hostname;
 
 	return (
-		<a href={link} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-start shadow-lg p-4 mb-4">
-			<img src={`https://www.google.com/s2/favicons?domain=${link}`} alt="Link icon" className="w-8 h-8 mr-4" />
-			<div className="text-sm dark:text-white">{siteTitle}</div>
+		<a href={link} target="_blank" rel="noopener noreferrer" className="flex flex-col w-half justify-between shadow-lg rounded-lg p-4 mt-4 mb-4 dark:shadow-slate-800 dark:bg-gray-900 bg-[#FEFDFB] z-1 items-start" style={{ boxShadow: '0px 1px 10px rgba(0, 0, 0, 0.1)' }}>
+			<div className="flex flex-row items-center justify-center">
+				<div
+				className="pr-2"
+				>
+				<GithubLogo
+						color={`${isDarkMode ? "#FEFDFB" : "#333531"}`}
+					/>
+				</div>
+					
+				<div className="text-sm dark:text-white text-center">{siteTitle}</div>
+			</div>
 		</a>
 	);
 };
@@ -70,9 +79,11 @@ const LinkCard = ({ link, title }) => {
 // Title Component
 const Title = ({ blog }) => (
 	<div className="flex flex-col items-start justify-between w-full pb-4 pt-4">
-		<ReactMarkdown>{"# " + blog.title}</ReactMarkdown>
+		<div>
+			<ReactMarkdown>{"# " + blog.title}</ReactMarkdown>
+		</div>
 		<LinkCard
-		title={"Hugging Face Transformers"}
+		title={"Hugging Face Transformers Fork with Contrastive Decoding"}
 		link={"https://github.com/jedell/transformers/blob/10c57f601571d739d3359b4779fc46365c17bb5b/src/transformers/generation/utils.py#L2324C5-L2324C5"}
 		/>
 	</div>
