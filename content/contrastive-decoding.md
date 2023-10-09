@@ -37,7 +37,7 @@ See [this forked repository](https://github.com/jedell/transformers/blob/10c57f6
 
 ## Evaluation
 
-The following evaluations were performed with two GPT-2 models: the expert with 345M parameters and the amateur with 117M.
+The following evaluations were performed with two GPT-2 models: large and small for the expert and amateur respectively.
 
 ### **Qualitative Evaluation**
 
@@ -83,13 +83,17 @@ Contrastive:  "Once upon a time in a far-away, magical land, a young girl named 
 
 ⚠️ Under Construction ⚠️
 
-- GSM8K
-- HellaSwag
+#### GSM8K
+- Using [GPT2 finetuned on GSM8k](https://huggingface.co/fiveflow/gpt2-large-gsm8k) 
+- Accuracy = ~20.2%
+
+#### HellaSwag
+- 
 
 ### **Further Experiments**
 
-- Evalute differnent model architectures and sizes
-- Adding context to modify amateur generation, controlling for what behaviors are penalized. (i.e. prompt the amateur model to be toxic, to use repetative words, to avoid a certain tone, etc.) 
+- Evalute differnent model architectures and sizes including Llama 2 models.
+- Controlling amateur model via context to impact what behaviors are penalized. (i.e. prompt the amateur model to be toxic, to use repetative words, to avoid a certain tone, etc.).
 
 
 
