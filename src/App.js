@@ -37,7 +37,7 @@ export default function App() {
 
 	return (
 		<DarkModeProvider.Provider value={{ isDarkMode, setIsDarkMode }}>
-			<RouterProvider router={router}>
+			<RouterProvider router={router} basename={process.env.PUBLIC_URL}>
 				<Root />
 			</RouterProvider>
 		</DarkModeProvider.Provider>

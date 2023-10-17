@@ -2,7 +2,8 @@ import GithubLogo from "../images/GithubLogo";
 import LinkedinLogo from "../images/LinkedInLogo";
 import joey from "../images/Removal-127.png";
 import ff_report from "../images/ff_report.pdf";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 import { useDarkMode } from "../context/darkmode";
 import { DarkToggle } from "../components/DarkToggle";
 import { BlogCardSmall } from "../components/BlogCard";
@@ -62,14 +63,14 @@ function Root() {
 				<div className="flex justify-between pb-2">
 					<div className="flex flex-row gap-4">
 						<div className="font-bold">
-							<a className="" href={"#" + SECTIONS[0]}>
+							<Link className="" to={"/#" + SECTIONS[0]}>
 								{SECTIONS[0]}
-							</a>
+							</Link>
 						</div>
 						<div className="font-bold">
-							<a className="" href={"#" + SECTIONS[1]}>
+							<Link className="" to={"/#" + SECTIONS[1]}>
 								{SECTIONS[1]}
-							</a>
+							</Link>
 						</div>
 						<div className="font-bold">
 							<Link to="/blog">{SECTIONS[2]}</Link>
