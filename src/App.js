@@ -6,6 +6,7 @@ import BlogPage from "./routes/BlogPage";
 import Blog from "./routes/Blog";
 import { blogLoader, blogsLoader } from "./blogs/blogs";
 import { DarkModeProvider } from "./context/darkmode";
+import InfluenceDemo from "./routes/InfluenceDemo";
 
 // dark mode context
 
@@ -17,6 +18,12 @@ const router = createHashRouter([
 		element: <Root />,
 		errorElement: <ErrorPage />,
         loader: blogsLoader,
+	},
+	{
+		path: "/influence-demo",
+		element: <InfluenceDemo />,
+		errorElement: <ErrorPage />,
+		loader: blogsLoader,
 	},
 	{
 		path: "/blog",

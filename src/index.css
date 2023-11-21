@@ -115,3 +115,30 @@ pre {
 		border-color: transparent;
 	}
 }
+
+.influence {
+	position: relative;
+	display: inline-block;
+  }
+  
+  .influence .tooltip {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+	position: absolute;
+	z-index: 1;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -60px;
+	opacity: 0;
+	transition: opacity 0.3s;
+  }
+  
+  .influence:hover .tooltip {
+	visibility: visible;
+	opacity: 1;
+  }

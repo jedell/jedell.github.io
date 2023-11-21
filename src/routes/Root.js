@@ -209,9 +209,8 @@ function Root() {
 								.
 							</p>
 							<p>
-								My academic interests include representation
-								learning, natural language processing,
-								contrastive learning, and joint-embedding
+								I am interested in deep learning research broadly, but focus on learning about natural language processing,
+								self-supervised learning, optimization and joint-embedding
 								models.
 							</p>
 						</div>

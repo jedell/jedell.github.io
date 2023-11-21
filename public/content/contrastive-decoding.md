@@ -81,8 +81,6 @@ Contrastive:  "Once upon a time in a far-away, magical land, a young girl named 
 ```
 ### **Quantitative Evalution**
 
-⚠️ Under Construction ⚠️
-
 #### GSM8K
 - Using [GPT2 finetuned on GSM8k](https://huggingface.co/fiveflow/gpt2-large-gsm8k) 
 
