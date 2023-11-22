@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
+import "katex/dist/katex.min.css";
+import Latex from "react-latex-next";
 
 const Tooltip = ({ children, content }) => {
 	const node = useRef();
@@ -69,7 +71,7 @@ const LoadingIndicator = () => {
 						return ".";
 				}
 			});
-		}, 150);
+		}, 100);
 
 		return () => clearInterval(interval);
 	}, []);
@@ -117,22 +119,24 @@ const PulseAnimation = () => {
 };
 
 const InfluenceDemo = () => {
+	const [prompt, setPrompt] = useState("");
 	const [query, setQuery] = useState("");
-	const [completion, setCompletion] = useState("");
 	const [data, setData] = useState([]);
 	const [tokenInfluences, setTokenInfluences] = useState([]);
 	const [loading, setLoading] = useState(false);
 
-	const fetchData = async (userQuery) => {
+	const fetchData = async (userPrompt) => {
 		setLoading(true);
+		setQuery(userPrompt); // Set query to prompt initially
+
 		setTimeout(() => {
 			// Your code here
 
-			// Call your API here and set the data and completion
+			// Call your API here and set the data and query
 			// For now, we will use a mock response
 			const response = [
 				{
-					query: "a0b1c",
+					query: "testa0b1c",
 					influences: [
 						{
 							sample: "0b1c2",
@@ -183,7 +187,21 @@ const InfluenceDemo = () => {
 				},
 			];
 
-			setCompletion(response[0].completion);
+			// Animate filling in the rest of the query
+			let fullQuery = response[0].query;
+			let promptLength = userPrompt.length;
+			let completion = fullQuery.slice(promptLength - 1);
+			console.log(completion)
+			let i = 0;
+			let intervalId = setInterval(() => {
+				if (i < completion.length - 1) {
+					setQuery(query => query + completion[i]);
+					i++;
+				} else {
+					clearInterval(intervalId);
+				}
+			}, 100); // Adjust the interval as needed
+
 			let influences = response[0].influences;
 			const maxInfluence = Math.max(
 				...influences.map((influence) => influence.influence)
@@ -204,8 +222,6 @@ const InfluenceDemo = () => {
 						(tokenInfluence - minTokenInfluence) /
 						(maxTokenInfluence - minTokenInfluence))
 				);
-				console.log(influence.token_influence)
-				console.log(normTokenInfluences)
 
 				return [
 					influence.sample,
@@ -225,25 +241,57 @@ const InfluenceDemo = () => {
 		}, 2000);
 	};
 
+	const CustomInput = React.forwardRef(({ value, onChange, placeholder }, ref) => {
+		return (
+			<div className="relative">
+				<input
+					ref={ref}
+					className="p-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+					value={value}
+					onChange={(e) => {
+						onChange(e);
+					}}
+				/>
+				{(!value) ?
+					<div className="absolute left-2 top-2.5 text-gray-400" style={{pointerEvents: "none"}}>
+						{<Latex>{placeholder}</Latex>}
+					</div>
+					:
+					<></>
+				}
+			</div>
+		);
+	});
+
+	const inputRef = useRef(null);
+
+	useEffect(() => {
+		if (inputRef.current) {
+			inputRef.current.focus();
+		}
+	}, [prompt]);
+
 	return (
 		<div className="flex flex-col min-h-screen">
 			<div className="flex flex-col justify-center p-12">
 				<div className="mb-4">
 					<div className="flex flex-row">
-						<input
-							className="p-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500 w-1/2"
-							value={query}
-							onChange={(e) => setQuery(e.target.value)}
-							placeholder="Enter your query here"
+						<CustomInput
+							ref={inputRef}
+							value={prompt}
+							onChange={(e) => setPrompt(e.target.value)}
+							placeholder={`Prompt ($z_p$)`}
 						/>
+						
 						{loading ? (
 							<div className="flex ml-4">
 								<Spinner size="h-10 w-10" />
 							</div>
 						) : (
 							<button
-								onClick={() => fetchData(query)}
-								className="p-2 ml-4 bg-[#0064FF] text-black rounded-md hover:text-white transition duration-200 ease-in-out"
+								onClick={() => fetchData(prompt)}
+								className={`p-2 ml-4 bg-[#0064FF] text-black rounded-md hover:text-white transition duration-200 ease-in-out ${!prompt && 'opacity-50 cursor-not-allowed'}`}
+								disabled={!prompt}
 							>
 								Calculate
 							</button>
@@ -251,17 +299,20 @@ const InfluenceDemo = () => {
 					</div>
 				</div>
 				<>
-					<b className="font-bold text-xl">Completion:</b>
+				<div>
+					<span className="font-bold text-xl">Query (<Latex>{`$z_q$`}</Latex>): </span>
+					
+					</div>
 					<div className="mb-4 p-2 border-2 border-gray-300 rounded-md">
 						{loading ? (
 							<div className="flex flex-row">
-								<LoadingIndicator />{" "}
+								{query} <LoadingIndicator />{" "}
 							</div>
 						) : (
-							completion || "\u00A0"
+							query || "\u00A0"
 						)}
 					</div>
-					<p className="font-bold text-xl">Top Influences:</p>
+					<span className="font-bold text-xl">Top Samples:</span>
 					{loading ? (
 						<PulseAnimation />
 					) : (
