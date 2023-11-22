@@ -210,18 +210,24 @@ const InfluenceDemo = () => {
 				Math.min(
 					...influences.map((influence) => influence.influence)
 				) / 1.05;
+			// Calculate max and min token influence across all influences
+			const maxTokenInfluence = Math.max(
+				...influences.flatMap((influence) => influence.token_influence)
+			);
+			const minTokenInfluence = Math.min(
+				...influences.flatMap((influence) => influence.token_influence)
+			);
 
 			influences = influences.map((influence) => {
-				// TODO this needs to be handled better to make it pretty
-				const sortedTokenInfluences = [...influence.token_influence].sort((a, b) => a - b);
-				const maxTokenInfluence = sortedTokenInfluences[sortedTokenInfluences.length - 1];
-				const minTokenInfluence = sortedTokenInfluences[Math.floor(sortedTokenInfluences.length * 0.2)];
-				let normTokenInfluences = influence.token_influence.map(
-					(tokenInfluence) =>
-						(tokenInfluence < minTokenInfluence ? 0 :
-						(tokenInfluence - minTokenInfluence) /
-						(maxTokenInfluence - minTokenInfluence))
-				);
+				let normTokenInfluences = influence.token_influence.map((token) => {
+					if (token >= 0) {
+						return token / maxTokenInfluence / 1.2;
+					} else {
+						return token / minTokenInfluence;
+					}
+				});
+				console.log(influence.token_influence)
+				console.log(normTokenInfluences)
 
 				return [
 					influence.sample,
@@ -339,7 +345,7 @@ const InfluenceDemo = () => {
 														key={index}
 														className="font-bold text-black p-1 rounded"
 														style={{
-															backgroundColor: `rgba(0, 100, 255, ${normTokenInfluences[index]})`,
+															backgroundColor: tokenInfluences[index] >= 0 ? `rgba(0, 100, 255, ${normTokenInfluences[index]})` : `rgba(255, 0, 0, ${Math.abs(normTokenInfluences[index])})`,
 														}}
 														>
 															{char}
