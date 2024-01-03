@@ -8,7 +8,7 @@ import { useDarkMode } from "../context/darkmode";
 import { DarkToggle } from "../components/DarkToggle";
 import { BlogCardSmall } from "../components/BlogCard";
 
-let SECTIONS = ["home", "about", "blog"];
+let SECTIONS = ["", "about", "projects"];
 let COURSES = [
 	<>
 		<a
@@ -73,7 +73,7 @@ function Root() {
 							</Link>
 						</div>
 						<div className="font-bold">
-							<Link to="/blog">{SECTIONS[2]}</Link>
+							<Link to="/projects">{SECTIONS[2]}</Link>
 						</div>
 					</div>
 					<div className="flex flex-row gap-4 pt-2 pr-4">
@@ -160,7 +160,7 @@ function Root() {
 
 						<div className="flex flex-col items-start justify-start w-full">
 							<b>
-								<h2 className="">blogs</h2>
+								<h2 className="">projects</h2>
 							</b>
 
 							<div className="flex flex-col items-center justify-start w-full">

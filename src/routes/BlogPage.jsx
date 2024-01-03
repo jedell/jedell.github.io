@@ -6,7 +6,7 @@ import LinkedinLogo from "../images/LinkedInLogo";
 import { useDarkMode } from "../context/darkmode";
 import GithubLogo from "../images/GithubLogo";
 import { DarkToggle } from "../components/DarkToggle";
-import BlogCard, { BlogCardSmall } from "../components/BlogCard";
+import BlogCard from "../components/BlogCard";
 export default function BlogPage() {
 	const { blogs } = useLoaderData();
 	const { isDarkMode, setIsDarkMode } = useDarkMode();

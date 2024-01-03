@@ -12,9 +12,7 @@ import LinkedinLogo from "../images/LinkedInLogo";
 import GithubLogo from "../images/GithubLogo";
 import { DarkToggle } from "../components/DarkToggle";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {
-	materialDark,
-} from "react-syntax-highlighter/dist/esm/styles/prism";
+import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 // Header Section Component
 const HeaderSection = ({ isDarkMode, setIsDarkMode }) => (
@@ -58,23 +56,27 @@ const LinkCard = ({ link, title }) => {
 	const siteTitle = title || url.hostname;
 
 	return (
-		<a href={link} target="_blank" rel="noopener noreferrer" className="flex flex-col w-half justify-between shadow-lg rounded-lg p-4 mt-4 mb-4 dark:shadow-slate-800 dark:bg-gray-900 bg-[#FEFDFB] z-1 items-start" style={{ boxShadow: '0px 1px 10px rgba(0, 0, 0, 0.1)' }}>
+		<a
+			href={link}
+			target="_blank"
+			rel="noopener noreferrer"
+			className="flex flex-col w-half justify-between shadow-lg rounded-lg p-4 mt-4 mb-4 dark:shadow-slate-800 dark:bg-gray-900 bg-[#FEFDFB] z-1 items-start"
+			style={{ boxShadow: "0px 1px 10px rgba(0, 0, 0, 0.1)" }}
+		>
 			<div className="flex flex-row items-center justify-center">
-				<div
-				className="pr-2"
-				>
-				<GithubLogo
+				<div className="pr-2">
+					<GithubLogo
 						color={`${isDarkMode ? "#FEFDFB" : "#333531"}`}
 					/>
 				</div>
-					
-				<div className="text-sm dark:text-white text-center">{siteTitle}</div>
+
+				<div className="text-sm dark:text-white text-center">
+					{siteTitle}
+				</div>
 			</div>
 		</a>
 	);
 };
-
-
 
 // Title Component
 const Title = ({ blog }) => (
@@ -82,10 +84,11 @@ const Title = ({ blog }) => (
 		<div>
 			<ReactMarkdown>{"# " + blog.title}</ReactMarkdown>
 		</div>
-		<LinkCard
-		title={"Hugging Face Transformers Fork with Contrastive Decoding"}
-		link={"https://github.com/jedell/transformers/blob/10c57f601571d739d3359b4779fc46365c17bb5b/src/transformers/generation/utils.py#L2324C5-L2324C5"}
-		/>
+		{blog.link ? (
+			<LinkCard title={blog.linkTitle} link={blog.link} />
+		) : (
+			<></>
+		)}
 	</div>
 );
 
@@ -104,7 +107,6 @@ const Content = React.forwardRef(({ paragraph }, ref) => {
 						span.style.display = "flex";
 						span.style.justifyContent = "center";
 						span.style.alignItems = "center";
-						
 					}
 				});
 			});
@@ -149,12 +151,11 @@ const Content = React.forwardRef(({ paragraph }, ref) => {
 												whiteSpace: "pre-wrap",
 											},
 										}}
-										showLineNumbers={false}								
+										showLineNumbers={false}
 										customStyle={{
 											borderRadius: "0.375rem",
 											padding: "1.5rem",
 										}}
-
 										PreTag="div"
 									/>
 								) : (

@@ -27,50 +27,47 @@ async function parseBlogs() {
 			});
 	}
 
-	// Specify the name of your .md file here
-	const mdFileName = "contrastive-decoding.md";
+	// Specify the names of your .md files here
+	const mdFileNames = ["contrastive-decoding.md", "influence-functions.md"];
+	const titles = ["Contrastive Decoding in Hugging Face Transformers", "Exploring Influence Functions in Large Language Models"]
+	const images = 
+	[
+		"https://i.pinimg.com/originals/45/b3/cc/45b3ccd39243d0b2b7922083d9390401.jpg",
+		"https://www.teahub.io/photos/full/96-962647_minimalist-landscape-wallpaper-yellow.jpg"	
+	];
+	const links = [
+		{
+			title: "Hugging Face Transformers Fork with Contrastive Decoding",
+			link: "https://github.com/jedell/transformers/blob/10c57f601571d739d3359b4779fc46365c17bb5b/src/transformers/generation/utils.py#L2324C5-L2324C5"
+		},
+		{
+			title: "Exploring Influence Functions in Large Language Models",
+		}
+	]
 	// Fetch the .md file content
-	let paragraphs = await fetchMdFile(mdFileName);
+	let blogs = await Promise.all(mdFileNames.map(async (mdFileName) => {
+		let paragraphs = await fetchMdFile(mdFileName);
 
-	// Note: Place your .md files in the public/content folder
+		// Note: Place your .md files in the public/content folder
 
-	const content1 = [
-		{
-			text: paragraphs[0],
-		},
-	];
+		const content = [
+			{
+				text: paragraphs[0],
+			},
+		];
 
-	const content2 = [
-		{
-			text: "$\\frac{1}{2}$",
-			image: "https://e0.pxfuel.com/wallpapers/94/339/desktop-wallpaper-fogy-mountains-smoky-mountains.jpg",
-			code: `const a = 1;
-const b = 2;
-const c = a + b;
-console.log(c);`,
-
-			list: ["item 1", "item 2", "item 3"],
-			link: "https://www.google.com",
-			linkText: "Google",
-		},
-	];
-
-	return [
-		{
-			title: "Contrastive Decoding in Hugging Face Transformers",
-			content: content1,
+		return {
+			title: titles[mdFileNames.indexOf(mdFileName)],
+			content: content,
 			date: "2023-09-22",
-			image: "https://i.pinimg.com/originals/45/b3/cc/45b3ccd39243d0b2b7922083d9390401.jpg",
-			id: "contrastive-decoding",
-		},
-		// {
-		// 	title: "See you soon!",
-		// 	content: content2,
-		// 	date: "2021-09-01",
-		// 	image: "https://e0.pxfuel.com/wallpapers/94/339/desktop-wallpaper-fogy-mountains-smoky-mountains.jpg",
-		// 	id: "see-you-soon",
-		// },
-	];
+			image: images[mdFileNames.indexOf(mdFileName)],
+			linkTitle: links[mdFileNames.indexOf(mdFileName)].title || "",
+			link: links[mdFileNames.indexOf(mdFileName)].link || "",
+			id: mdFileName.replace(".md", ""),
+		};
+	}));
+
+	return blogs;
 }
 
 

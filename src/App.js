@@ -26,13 +26,13 @@ const router = createHashRouter([
 		loader: blogsLoader,
 	},
 	{
-		path: "/blog",
+		path: "/projects",
 		element: <BlogPage />,
 		errorElement: <ErrorPage />,
 		loader: blogsLoader,
 	},
 	{
-		path: "/blog/:id",
+		path: "/projects/:id",
 		element: <Blog />,
 		errorElement: <ErrorPage />,
 		loader: blogLoader,

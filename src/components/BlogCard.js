@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // New Button component
 const ReadMoreButton = ({ slug }) => (
 	<Link
-		to={`/blog/${slug}`}
+		to={`/projects/${slug}`}
 		className="inline-block border-2 border-[#A76031] dark:border-[#f58282] rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2 self-end transition duration-200"
 	>
 		Read More
