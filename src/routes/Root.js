@@ -139,13 +139,13 @@ function Root() {
 										fill={isDarkMode ? "#fff" : "#333531"}
 									>
 										<tspan x="5%" dy="1.2em">
-											Hey! I just
+											Hey! Cool
 										</tspan>
 										<tspan x="5%" dy="1.2em">
-											graduated from
+											cursor!
 										</tspan>
 										<tspan x="5%" dy="1.2em">
-											NYU!
+											lol
 										</tspan>
 									</text>
 								</svg>

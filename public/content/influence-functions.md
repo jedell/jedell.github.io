@@ -1,4 +1,4 @@
-[WIP Demo](#/influence-demo)
+[Demo](#/influence-demo)
 
 Influence functions are a powerful tool for understanding the impact of individual training examples on the predictions of a trained model. I was first introduced to them via [Studying Large Language Model Generalization with Influence Functions](https://arxiv.org/pdf/2308.03296.pdf).
 
