@@ -10,8 +10,6 @@ import InfluenceDemo from "./routes/InfluenceDemo";
 
 // dark mode context
 
-console.log("Herllo")
-
 const router = createHashRouter([
 	{
 		path: "/",

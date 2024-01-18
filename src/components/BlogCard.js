@@ -44,7 +44,7 @@ export function BlogCardSmall({ title, image, date, index, slug }) {
 		<div className="flex flex-row gap-4 w-full justify-between shadow-lg rounded-lg p-4 mb-4 dark:shadow-slate-800 dark:bg-gray-900 bg-[#FEFDFB] z-1 items-center">
 			<div className="flex flex-row gap-2 content-center items-center">
 				<img
-					className="w-full h-24 object-cover rounded-lg"
+					className="w-32 h-24 object-cover rounded-lg"
 					src={image}
 					alt="blog img"
 				/>
