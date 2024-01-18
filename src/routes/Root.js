@@ -190,14 +190,16 @@ function Root() {
 							</b>
 
 							<p>
-								M.S. Computer Science @
+								- M.S. Computer Science @{" "}
 								<a
 									className="text-[#A76031] dark:text-[#f58282] underline"
 									href="https://www.nyu.edu/"
 								>
 									New York University
 								</a>
-								{"\n"}B.S. Computer Science and Economics @
+							</p>
+							<p>
+								- B.S. Computer Science and Economics @{" "}
 								<a
 									className="text-[#A76031] dark:text-[#f58282] underline"
 									href="https://www.oberlin.edu/"
