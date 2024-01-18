@@ -190,28 +190,26 @@ function Root() {
 							</b>
 
 							<p>
-								I am a graduate of{" "}
+								M.S. Computer Science @
 								<a
 									className="text-[#A76031] dark:text-[#f58282] underline"
 									href="https://www.nyu.edu/"
 								>
 									New York University
 								</a>
-								, where I earned my M.S. in Computer Science.
-								Prior to that, I recieved my bachelor's in
-								Computer Science and Economics at{" "}
+								{"\n"}B.S. Computer Science and Economics @
 								<a
 									className="text-[#A76031] dark:text-[#f58282] underline"
 									href="https://www.oberlin.edu/"
 								>
 									Oberlin College
 								</a>
-								.
+								
 							</p>
 							<p>
-								I am interested in deep learning research broadly, but focus on learning about natural language processing,
-								self-supervised learning, optimization and joint-embedding
-								models.
+								I am interested in deep learning research broadly, but like to read about natural language processing,
+								self-supervised learning, optimization, interpretability and joint-embedding
+								models!
 							</p>
 						</div>
 						<div className="flex flex-col pb-8">
