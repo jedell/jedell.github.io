@@ -13,7 +13,7 @@ export default function BlogPage() {
 
 	return (
 		<div className={`${isDarkMode ? "dark bg-gray-900" : ""}`}>
-			<header className="lg:fixed md:relative sm:relative lg:bg-transparent lg:dark:bg-transparent pl-4 z-10 dark:text-[#FEFDFB] text-[#333531] dark:bg-gray-900 bg-[#FEFDFB] w-full">
+			<header className="lg:fixed md:relative sm:relative pl-4 lg:bg-transparent lg:dark:bg-transparent z-10 dark:text-[#FEFDFB] text-[#333531] dark:bg-gray-900 bg-[#FEFDFB] w-full">
 				<div className="flex justify-between pb-2">
 					<div className="flex flex-row gap-4">
 						<div className="font-bold">
@@ -47,7 +47,7 @@ export default function BlogPage() {
 				</div>
 			</header>
 			<div
-				className={`dark:bg-gray-900 dark:text-[#FEFDFB] bg-[#FEFDFB] text-[#333531] ${
+				className={`dark:bg-gray-900 dark:text-[#FEFDFB] bg-[#FEFDFB] text-[#333531] pt-2 ${
 					isDarkMode ? "dark" : ""
 				}`}
 			>
@@ -55,7 +55,7 @@ export default function BlogPage() {
 					<div className="flex flex-col content-center items-center text-md lg:w-10/12 md:w-10/12 sm:w-10/12 lg:pt-8 pt-2 pb-8">
 						<div
 							// if mobile, make it a single column, centered
-							className={`grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 flex flex-col justify-center items-center
+							className={`flex flex-col justify-left
 							gap-4 
 							${isDarkMode ? "dark:bg-gray-900" : ""}`}
 						>

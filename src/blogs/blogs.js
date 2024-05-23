@@ -28,12 +28,13 @@ async function parseBlogs() {
 	}
 
 	// Specify the names of your .md files here
-	const mdFileNames = ["contrastive-decoding.md", "influence-functions.md"];
-	const titles = ["Contrastive Decoding in Hugging Face Transformers", "Exploring Influence Functions in Large Language Models"]
+	const mdFileNames = ["contrastive-decoding.md", "influence-functions.md", "bfs.md"];
+	const titles = ["Contrastive Decoding in Hugging Face Transformers", "Exploring Influence Functions in Large Language Models", "Understanding U.S. Business Formation: Insights from Deep Learning"]
 	const images = 
 	[
 		"https://i.pinimg.com/originals/45/b3/cc/45b3ccd39243d0b2b7922083d9390401.jpg",
-		"https://www.teahub.io/photos/full/96-962647_minimalist-landscape-wallpaper-yellow.jpg"	
+		"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidZ6vrOD7b2iIWEVN0SlhLpZyDalm_X9JWW4M-rtoOx0HYn45H2gH2jQtoqiZXqWQckw6j5UGIVvp5e6ARZDO2O7GcNylwHB80RMYrlPf6zk2Hqgl9ibwoeyaWCIKNaQX0zFjAs3uCG0ufuLl-jKLT2K7oiYrmq2OGduUqbMmY9ljOJ8hrUw9E4QhNNTQM/s1600-rw/HEROSCREEN.CC-WALLPAPER-4K-MOUNTAINSCAPE-181023.jpg",
+		"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidZ6vrOD7b2iIWEVN0SlhLpZyDalm_X9JWW4M-rtoOx0HYn45H2gH2jQtoqiZXqWQckw6j5UGIVvp5e6ARZDO2O7GcNylwHB80RMYrlPf6zk2Hqgl9ibwoeyaWCIKNaQX0zFjAs3uCG0ufuLl-jKLT2K7oiYrmq2OGduUqbMmY9ljOJ8hrUw9E4QhNNTQM/s1600-rw/HEROSCREEN.CC-WALLPAPER-4K-MOUNTAINSCAPE-181023.jpg"
 	];
 	const links = [
 		{
@@ -42,11 +43,20 @@ async function parseBlogs() {
 		},
 		{
 			title: "Exploring Influence Functions in Large Language Models",
+		},
+		{
+			title: "Understanding U.S. Business Formation: Insights from Deep Learning",
 		}
 	]
+
 	// Fetch the .md file content
 	let blogs = await Promise.all(mdFileNames.map(async (mdFileName) => {
 		let paragraphs = await fetchMdFile(mdFileName);
+
+		paragraphs = paragraphs.map(paragraph => {
+			return paragraph.replace(/<PUBLIC_URL>/g, process.env.PUBLIC_URL);
+		});
+		
 
 		// Note: Place your .md files in the public/content folder
 

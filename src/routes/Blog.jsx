@@ -6,6 +6,7 @@ import Latex from "react-latex-next";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import rehypeRaw from 'rehype-raw'
 import { Link, useLoaderData } from "react-router-dom";
 import { useDarkMode } from "../context/darkmode";
 import LinkedinLogo from "../images/LinkedInLogo";
@@ -18,7 +19,7 @@ import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 const HeaderSection = ({ isDarkMode, setIsDarkMode }) => (
 	<header className="fixed bg-transparent pl-4 z-20 dark:text-[#FEFDFB] text-[#333531] dark:bg-gray-900 bg-[#FEFDFB] w-full">
 		<div className="flex justify-between pb-2">
-			<div className="flex flex-row gap-4">
+			<div className="flex flex-row gap-4 items-center">
 				<div className="font-bold">
 					<Link to="/">home</Link>
 				</div>
@@ -119,15 +120,15 @@ const Content = React.forwardRef(({ paragraph }, ref) => {
 				<div ref={markdownRef}>
 					<ReactMarkdown
 						remarkPlugins={[remarkMath]}
-						rehypePlugins={[rehypeKatex]}
+						rehypePlugins={[rehypeKatex, rehypeRaw]}
 						components={{
-							code({
+							code: ({
 								node,
 								inline,
 								className,
 								children,
 								...props
-							}) {
+							}) => {
 								const match = /language-(\w+)/.exec(
 									className || ""
 								);
@@ -204,7 +205,7 @@ const Content = React.forwardRef(({ paragraph }, ref) => {
 // Body Section Component
 const BodySection = ({ blog }) => (
 	<div
-		className={`dark:bg-gray-900 dark:text-[#FEFDFB] bg-[#FEFDFB] text-[#333531] `}
+		className={`dark:bg-gray-900 dark:text-[#FEFDFB] bg-[#FEFDFB] text-[#333531] pt-2 mr-36 ml-36`}
 	>
 		<section className="h-full w-full relative flex flex-col items-center content-center pl-4 pr-4">
 			<div className="flex flex-col content-center items-start m-0 text-md w-full pt-2 pb-8">

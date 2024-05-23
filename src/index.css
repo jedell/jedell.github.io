@@ -99,9 +99,7 @@ pre {
 	white-space: nowrap;
 	overflow: hidden;
 	font-family: monospace;
-	font-size: 1.3rem;
-	/* // text: "Hi, I'm Joey!", set width according to text */
-	width: 13.5ch;
+	width: 22.5ch;
 }
 
 @keyframes typing {
