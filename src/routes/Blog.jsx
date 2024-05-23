@@ -205,7 +205,7 @@ const Content = React.forwardRef(({ paragraph }, ref) => {
 // Body Section Component
 const BodySection = ({ blog }) => (
 	<div
-		className={`dark:bg-gray-900 dark:text-[#FEFDFB] bg-[#FEFDFB] text-[#333531] pt-2 mr-36 ml-36`}
+		className={`dark:bg-gray-900 dark:text-[#FEFDFB] bg-[#FEFDFB] text-[#333531] pt-2 lg:mr-36 lg:ml-36 sm:mr-2 sm:ml-2`}
 	>
 		<section className="h-full w-full relative flex flex-col items-center content-center pl-4 pr-4">
 			<div className="flex flex-col content-center items-start m-0 text-md w-full pt-2 pb-8">
