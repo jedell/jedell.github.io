@@ -80,7 +80,7 @@ $H$ time steps.
 
 ## Experiments
 
-We tasked LSTM models to forecast quarterly data of business birth rates using 500 exogenous variables pulled from the FRED API. The models were tasked with making single-step predictions, forecasting one quarter into the future based on previous data. We tested the models with and without two key variables: work from home (WFH) and regulation per capita as well as with varying context input sizes. The forecast horizon was set to 7 quarters corresponding to the peak of business formation rates occuring at the end of 2021.
+We tasked LSTM models to forecast quarterly data of business birth rates using 500 exogenous variables pulled from the FRED API. The models were tasked with making single-step predictions, forecasting one quarter into the future based on previous data. We tested the models with and without two key variables: work from home (WFH) and regulation per capita as well as with varying context input sizes. The forecast horizon was set to 7 quarters corresponding to the peak of business formation rates occurring at the end of 2021.
 
 ## Results
 After training the LSTM models, we compared the post-COVID business formation rates with and without two key variables: work from home (WFH) and regulation per capita:
